@@ -1,1 +1,84 @@
 /*Maak hier jouw CSS!*/
+
+
+/*styling*/
+body {background-color: #F0E9E4}
+
+/*styling*/
+section {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #304D6D;
+    background-color: #82A0BC;
+    padding: 2px;
+}
+
+/*grid start*/
+div {
+    grid-gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:
+        /*first try:
+        50px 190px 100px 50px*/
+
+        /*improved*/
+            repeat(4, minmax(50px, auto));
+
+
+    grid-template-areas:
+            "a c c"
+            "b c c"
+            "b e d"
+            "b e 0" /*zero*/
+            "f f f"
+}
+
+
+#grid-a {
+    grid-area: a
+}
+
+#grid-b {
+    grid-area: b
+}
+
+#grid-c {
+    grid-area: c;
+}
+
+#grid-d {
+    grid-area: d
+}
+
+
+#grid-e {
+    grid-area: e
+}
+
+#grid-f {
+    grid-area: f
+}
+
+
+/*used max-width instead of min-width */
+@media screen and (max-width: 576px) {
+    div {
+        grid-gap: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(50px, auto);
+
+        grid-template-areas:
+                "a"
+                "b"
+                "c"
+                "d"
+                "e"
+                "0" /*zero*/
+                "f";
+
+    }
+}
+
